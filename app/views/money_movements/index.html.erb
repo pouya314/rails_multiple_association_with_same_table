@@ -15,7 +15,7 @@
   <tbody>
     <% @money_movements.each do |money_movement| %>
       <tr>
-        <td><%= money_movement.amount %></td>
+        <td><%= number_with_precision money_movement.amount, :precision => 2 %></td>
         <td><%= money_movement.from_account.name %></td>
         <td><%= money_movement.to_account.name %></td>
         <td><%= link_to 'Show', money_movement %></td>
@@ -25,6 +25,8 @@
     <% end %>
   </tbody>
 </table>
+
+Total: <%= number_with_precision @money_movements.sum(:amount), :precision => 2 %>
 
 <br>
 
