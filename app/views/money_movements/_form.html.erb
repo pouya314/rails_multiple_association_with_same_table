@@ -1,0 +1,32 @@
+<%= form_with(model: money_movement, local: true) do |form| %>
+  <% if money_movement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(money_movement.errors.count, "error") %> prohibited this money_movement from being saved:</h2>
+
+      <ul>
+        <% money_movement.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :from_account_id %>
+    <%= form.collection_select :from_account_id, Account.order(:name),:id,:name, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :to_account_id %>
+    <%= form.collection_select :to_account_id, Account.order(:name),:id,:name, include_blank: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
