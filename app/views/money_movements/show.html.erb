@@ -7,12 +7,12 @@
 
 <p>
   <strong>From account:</strong>
-  <%= @money_movement.from_account_id %>
+  <%= @money_movement.from_account.name %>
 </p>
 
 <p>
   <strong>To account:</strong>
-  <%= @money_movement.to_account_id %>
+  <%= @money_movement.to_account.name %>
 </p>
 
 <%= link_to 'Edit', edit_money_movement_path(@money_movement) %> |

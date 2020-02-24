@@ -16,8 +16,8 @@
     <% @money_movements.each do |money_movement| %>
       <tr>
         <td><%= money_movement.amount %></td>
-        <td><%= money_movement.from_account_id %></td>
-        <td><%= money_movement.to_account_id %></td>
+        <td><%= money_movement.from_account.name %></td>
+        <td><%= money_movement.to_account.name %></td>
         <td><%= link_to 'Show', money_movement %></td>
         <td><%= link_to 'Edit', edit_money_movement_path(money_movement) %></td>
         <td><%= link_to 'Destroy', money_movement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
